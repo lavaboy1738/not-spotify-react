@@ -21,6 +21,6 @@ export const SongLibrary = () => {
             active: false,
             source: "https://vgmsite.com/soundtracks/super-mario-odyssey-ost/gynnebqj/3-26%20Jump%20Up%2C%20Super%20Star%21.mp3",
             color: "#e11200"
-        }
+        },
     ]
 }
