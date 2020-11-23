@@ -1,0 +1,16 @@
+.library{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    box-shadow: 2px 2px 50px #CCC;
+    background: linear-gradient(to bottom ,#1DB954, #333 30%, #333, #191414 100%);
+    overflow-y: auto;
+    h1{
+        text-align: center;
+        color: #EEE;
+        font-weight: 600;
+        margin: 1rem 0;
+    }
+}

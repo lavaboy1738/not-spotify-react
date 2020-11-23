@@ -1,0 +1,31 @@
+.listingSong{
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+    transition: 0.3s all ease 0.1s;
+    &:hover{
+        background-color: rgba(200, 200, 200, 0.1);
+        transition: 0.3s all ease 0.1s;
+    }
+    .left{
+        width: 30%;
+        border-radius: 10px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+    .right{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .listingSong-name{
+            color: #EEE;
+        }
+        .listingSong-artist{
+            font-weight: 300;
+            color: #CCC;
+        }
+    }
+}

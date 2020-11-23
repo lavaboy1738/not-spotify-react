@@ -12,7 +12,7 @@ const App:React.FunctionComponent = () => {
 
   return (
     <div>
-      {/* <Library></Library> */}
+      <Library></Library>
       <CurrentSong currentSong={currentSong}></CurrentSong>
       <Player currentSong={currentSong} isPlaying={isPlaying} onChange={()=>{setIsPlaying((x)=>!x)}}
       // onChange={()=>setCurrentSong({})}
