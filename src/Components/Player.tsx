@@ -1,5 +1,5 @@
 import { time } from "console";
-import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Song } from "../global";
 import "../styles/Player.scss";
 
@@ -7,27 +7,27 @@ type Props = {
     currentSong: Song;
     isPlaying: boolean;
     onChange: ()=>void;
+    audioRef: React.RefObject<HTMLAudioElement>;
 }
 
 const Player = (props: Props) => {
     const {currentSong, isPlaying} = props;
-    const audioRef = useRef<HTMLAudioElement>(null);
     const [songTime, setSongTime] = useState({currentTime: 0, duration: 0});
 
     //event handlers
     const playHandler = () => {
-        if(audioRef.current && isPlaying){
-            audioRef.current.pause();
+        if(props.audioRef.current && isPlaying){
+            props.audioRef.current.pause();
             props.onChange();
-        }else if(audioRef.current && !isPlaying){
-            audioRef.current.play();
+        }else if(props.audioRef.current && !isPlaying){
+            props.audioRef.current.play();
             props.onChange();
         }
     }
 
     const dragHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if(audioRef.current){
-            audioRef.current.currentTime = parseInt(event.target.value)
+        if(props.audioRef.current){
+            props.audioRef.current.currentTime = parseInt(event.target.value)
             setSongTime({...songTime, currentTime: parseInt(event.target.value)})
         }
     }
@@ -52,10 +52,10 @@ const Player = (props: Props) => {
     }
 
     const timeUpdateHandler = () => {
-        if(audioRef.current){
+        if(props.audioRef.current){
             setSongTime({...songTime, 
-                currentTime: audioRef.current.currentTime, 
-                duration: audioRef.current.duration})
+                currentTime: props.audioRef.current.currentTime, 
+                duration: props.audioRef.current.duration})
         }
     }
 
@@ -64,7 +64,7 @@ const Player = (props: Props) => {
             <div className="time-control">
                 <p className="start-time">{getTime(songTime.currentTime)}</p>
                 <input type="range"
-                min={0} max={songTime.duration} 
+                min={0} max={songTime.duration | 0} 
                 value={songTime.currentTime}
                 onChange={dragHandler}
                 className="progress-bar" />
@@ -76,7 +76,7 @@ const Player = (props: Props) => {
                  onClick={playHandler} ></i>
                 <i className="bx bx-chevron-right"></i>
             </div>
-            <audio src={currentSong.source} ref={audioRef} 
+            <audio src={currentSong.source} ref={props.audioRef} 
             onTimeUpdate={timeUpdateHandler}
             onLoadedMetadata={timeUpdateHandler}
             ></audio>

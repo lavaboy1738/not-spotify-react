@@ -23,6 +23,13 @@
         align-items: center;
         i{
             cursor: pointer;
+            font-size: 3rem;
+            color: #ccc;
+            transition: 0.3s all ease 0.1s;
+            &:hover{
+                color:#eee;
+                transition: 0.3s all ease 0.1s;
+            }
         }
     }
 }

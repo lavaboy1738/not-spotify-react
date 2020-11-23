@@ -2,11 +2,21 @@
     display: flex;
     justify-content: flex-start;
     padding: 1rem;
+    opacity: 0.8;
     transition: 0.3s all ease 0.1s;
+    cursor: pointer;
     &:hover{
         background-color: rgba(200, 200, 200, 0.1);
         transition: 0.3s all ease 0.1s;
+        opacity: 1;
     }
+
+    &.active{
+        background-color: rgba(200, 200, 200, 0.1);
+        transition: 0.3s all ease 0.1s;
+        opacity: 1;
+    }
+
     .left{
         width: 30%;
         border-radius: 10px;
@@ -21,11 +31,11 @@
         flex-direction: column;
         justify-content: space-evenly;
         .listingSong-name{
-            color: #EEE;
+            color: #DDF;
         }
         .listingSong-artist{
             font-weight: 300;
-            color: #CCC;
+            color: #BBB;
         }
     }
 }
