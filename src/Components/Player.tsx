@@ -72,11 +72,8 @@ const Player = (props: Props) => {
             </div>
             <div className="play-control">
                 <i className="bx bx-chevron-left"></i>
-                {isPlaying === false?
-                <i className="bx bx-play" onClick={playHandler} ></i>
-                    :
-                <i className="bx bx-pause" onClick={playHandler} ></i>
-            }
+                <i className={isPlaying? "bx bx-pause": "bx bx-play"}
+                 onClick={playHandler} ></i>
                 <i className="bx bx-chevron-right"></i>
             </div>
             <audio src={currentSong.source} ref={audioRef} 
