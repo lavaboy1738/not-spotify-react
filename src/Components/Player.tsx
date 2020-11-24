@@ -34,12 +34,21 @@ const Player = (props: Props) => {
         }
     }
 
-    const nextHandler = () => {
-        
-    }
-
-    const prevHandler = () => {
-
+    const skipHandler = (direction: "next" | "prev") => {
+        const currentIndex = props.songs.findIndex(song=> song.id === props.currentSong.id)
+        if(direction === "next"){
+            if(currentIndex === props.songs.length-1){
+                props.setCurrentSong(props.songs[0])
+            }else{
+                props.setCurrentSong(props.songs[currentIndex+1])
+            }
+        }else{
+            if(currentIndex === 0){
+                props.setCurrentSong(props.songs[props.songs.length-1])
+            }else{
+                props.setCurrentSong(props.songs[currentIndex-1])
+            }
+        }
     }
 
     const getTime = (time: number) => {
@@ -73,10 +82,10 @@ const Player = (props: Props) => {
                 <p className="end-time">{getTime(songTime.duration)}</p>
             </div>
             <div className="play-control">
-                <i className="bx bx-chevron-left"></i>
+                <i className="bx bx-chevron-left" onClick={()=>skipHandler("prev")}></i>
                 <i className={isPlaying? "bx bx-pause": "bx bx-play"}
                  onClick={playHandler} ></i>
-                <i className="bx bx-chevron-right"></i>
+                <i className="bx bx-chevron-right" onClick={()=>skipHandler("next")}></i>
             </div>
             <audio src={currentSong.source} ref={props.audioRef} 
             onTimeUpdate={timeUpdateHandler}
