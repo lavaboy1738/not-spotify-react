@@ -5,6 +5,7 @@ import {CurrentSong} from "./Components/Song";
 import {Library} from "./Components/Library";
 import {Player} from "./Components/Player";
 import {Nav} from "./Components/Nav";
+import {Intro} from "./Components/Intro";
 import {SongLibrary as data} from "./utils/SongLibrary";
 
 const App:React.FunctionComponent = () => {
@@ -40,6 +41,7 @@ const App:React.FunctionComponent = () => {
         audioRef={audioRef}
         // onChange={()=>setCurrentSong({})}
         ></Player>
+        <Intro/>
       </div>
     </div>
   )

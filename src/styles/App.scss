@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     transition: 0.3s all ease;
+    position: relative;
 
     &.library-active{
         margin-left: 20rem;
