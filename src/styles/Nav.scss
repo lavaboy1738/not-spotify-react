@@ -1,10 +1,18 @@
 .nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    min-height: 10%;
+    @media screen and (max-width: 786px){
+        padding: 0 0.5rem;
+    }
     .nav-name{
         color: #eee;
         font-size: 2rem;
         font-weight: 600;
+        @media screen and (max-width: 786px){
+            font-size: 1.5rem;
+        }
     }
     .nav-button{
         outline: none;
@@ -15,9 +23,16 @@
         font-size: 1rem;
         cursor: pointer;
         transition: 0.3s all ease 0.1s;
+        @media screen and (max-width: 786px){
+            padding: 0.25rem;
+            z-index: 11;
+        }
         &:hover{
             transition: 0.3s all ease 0.1s;
             background-color: rgba(200, 200, 200, 0.4);
+            @media screen and (max-width: 786px){
+                background-color: transparent;
+            }
         }
         i{
             font-size: 1rem;

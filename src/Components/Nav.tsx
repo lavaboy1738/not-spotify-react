@@ -13,7 +13,7 @@ const Nav = (props: Prop) => {
 
     return (
         <div className="nav">
-            <span className="nav-name">Not Spotify</span>
+            <span className="nav-name"></span>
             <button className="nav-button" onClick={toggleLibrary}>
                 Library
                 <i className="bx bxs-playlist"></i>

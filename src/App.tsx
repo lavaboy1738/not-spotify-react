@@ -16,8 +16,10 @@ const App:React.FunctionComponent = () => {
 
   return (
     <div 
-    style={{background: `linear-gradient(to right,${currentSong.color}, #333 35%, #333, #333 35%, #333,#191414 100%)`}}
-    className="app"
+    style={{background: `linear-gradient(to bottom,${currentSong.color}, #333 35%, #333, #333 35%, #333,#191414 100%)`,
+    height: window.innerHeight
+  }}
+    className={libraryDisplay? "app library-active" : "app"}
     >
       <div className="wrapper">
         <Nav libraryDisplay={libraryDisplay} setLibraryDisplay={setLibraryDisplay} ></Nav>

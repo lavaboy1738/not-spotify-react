@@ -34,19 +34,33 @@ const Player = (props: Props) => {
         }
     }
 
-    const skipHandler = (direction: "next" | "prev") => {
+    const autoPlay = (ref: React.RefObject<HTMLAudioElement>, props: Props) => {
+        if(ref.current && props.isPlaying){
+            ref.current.play().then((audio)=>{
+                if(ref.current){
+                    ref.current.play();
+                }
+            })
+        }
+    }
+
+    const skipHandler = async (direction: "next" | "prev") => {
         const currentIndex = props.songs.findIndex(song=> song.id === props.currentSong.id)
         if(direction === "next"){
             if(currentIndex === props.songs.length-1){
-                props.setCurrentSong(props.songs[0])
+                await props.setCurrentSong(props.songs[0])
+                autoPlay(props.audioRef, props)
             }else{
-                props.setCurrentSong(props.songs[currentIndex+1])
+                await props.setCurrentSong(props.songs[currentIndex+1])
+                autoPlay(props.audioRef, props)
             }
         }else{
             if(currentIndex === 0){
-                props.setCurrentSong(props.songs[props.songs.length-1])
+                await props.setCurrentSong(props.songs[props.songs.length-1])
+                autoPlay(props.audioRef, props)
             }else{
-                props.setCurrentSong(props.songs[currentIndex-1])
+                await props.setCurrentSong(props.songs[currentIndex-1])
+                autoPlay(props.audioRef, props)
             }
         }
     }
@@ -74,11 +88,17 @@ const Player = (props: Props) => {
         <div className="player">
             <div className="time-control">
                 <p className="start-time">{getTime(songTime.currentTime)}</p>
-                <input type="range"
-                min={0} max={songTime.duration | 0} 
-                value={songTime.currentTime}
-                onChange={dragHandler}
-                className="progress-bar" />
+                    <div className="track">
+                    <input type="range"
+                    min={0} max={songTime.duration | 0} 
+                    value={songTime.currentTime}
+                    onChange={dragHandler}
+                    className="progress-bar" />
+                    <div className="animate-track"
+                    style={{transform: `translateX(-${100-(songTime.currentTime/songTime.duration)*100}%)`,
+                }}
+                    ></div>
+                </div>
                 <p className="end-time">{getTime(songTime.duration)}</p>
             </div>
             <div className="play-control">
@@ -90,6 +110,7 @@ const Player = (props: Props) => {
             <audio src={currentSong.source} ref={props.audioRef} 
             onTimeUpdate={timeUpdateHandler}
             onLoadedMetadata={timeUpdateHandler}
+            onEnded= {()=>skipHandler("next")}
             ></audio>
         </div>
     )

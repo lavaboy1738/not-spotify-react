@@ -1,18 +1,25 @@
 .library{
     position: fixed;
-    left: 0;
+    left: -20rem;
     top: 0;
     width: 20rem;
     height: 100%;
-    box-shadow: 2px 2px 50px #777;
     transition: 0.3s all ease;
-    background: linear-gradient(to left ,#555, #333 30%,#333, #333 30%, #333, #191414 100%);
+    background: linear-gradient(to bottom ,#555, #333 40%,#333, #333 40%, #333, #191414 100%);
     overflow-y: auto;
+    z-index: 10;
+    @media screen and (max-width: 786px){
+        width: 100%;
+        left: -100%;
+    }
+    &.active{
+        left:0;
+    }
     h1{
-        text-align: center;
+        text-align: left;
         color: #FFF;
         font-weight: 600;
-        margin: 1rem 0;
+        margin: 1rem 1rem;
         opacity: 0.9;
     }
 }

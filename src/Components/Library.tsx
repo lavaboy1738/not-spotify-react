@@ -16,18 +16,8 @@ type Prop = {
 const Library = (props: Prop) => {
     const libraryData = data();
     return(
-        <div className="library" 
-        style={
-            props.libraryDisplay?
-            {boxShadow: `2px 2px 50px ${props.currentSong.color}`,
-            background: `linear-gradient(to left ,${props.currentSong.color}, #333 30%,#333, #333 30%, #333, #191414 100%)`,
-            left: `0`}
-            :
-            {boxShadow: `2px 2px 50px ${props.currentSong.color}`,
-         background: `linear-gradient(to left ,${props.currentSong.color}, #333 30%,#333, #333 30%, #333, #191414 100%)`,
-         left: `-20rem`}
-        }>
-            <h1 className="library-title">Song Library</h1>
+        <div className={props.libraryDisplay? "library library active":"library"}>
+            <h1>Library</h1>
             <div className="library-listings">
                 <div className="song-listing">
                     {libraryData.map((song)=>{
