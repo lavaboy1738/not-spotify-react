@@ -5,6 +5,8 @@ import "../styles/Player.scss";
 
 type Props = {
     currentSong: Song;
+    setCurrentSong: (song: Song)=>void;
+    songs: Song[];
     isPlaying: boolean;
     onChange: ()=>void;
     audioRef: React.RefObject<HTMLAudioElement>;
@@ -33,7 +35,7 @@ const Player = (props: Props) => {
     }
 
     const nextHandler = () => {
-
+        
     }
 
     const prevHandler = () => {

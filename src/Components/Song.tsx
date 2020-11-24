@@ -7,7 +7,7 @@ type Prop = {
 }
 
 const CurrentSong = (props: Prop) => {
-    const {id, cover, artist, name, source, color, active} = props.currentSong;
+    const {cover, artist, name} = props.currentSong;
     return(
         <div className="song-container">
             <div className="cover-wrapper">

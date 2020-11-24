@@ -5,19 +5,20 @@
     align-items: center;
     justify-content: space-between;
     .time-control{
-        width: 50%;
         display: flex;
         justify-content: space-between;
+        width: 70%;
         input{
             padding: 1rem 0;
             flex-grow: 1;
         }
         p{
             padding: 1rem;
+            color: #ddd;
         }
     }
     .play-control{
-        width: 30%;
+        width: 70%;
         display: flex;
         justify-content: space-between;
         align-items: center;

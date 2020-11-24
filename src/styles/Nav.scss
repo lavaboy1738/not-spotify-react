@@ -1,0 +1,23 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    .nav-name{
+        color: #eee;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .nav-button{
+        outline: none;
+        background-color: transparent;
+        color: #eee;
+        border: 2px solid #eee;
+        padding : 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        i{
+            font-size: 1rem;
+            color: #eee;
+            margin-left: 0.5rem;
+        }
+    }
+}

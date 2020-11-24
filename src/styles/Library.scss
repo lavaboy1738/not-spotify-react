@@ -4,8 +4,9 @@
     top: 0;
     width: 20rem;
     height: 100%;
-    box-shadow: 2px 2px 50px #CCC;
-    background: linear-gradient(to bottom ,#1DB954, #333 30%, #333, #191414 100%);
+    box-shadow: 2px 2px 50px #777;
+    transition: 0.3s all ease;
+    background: linear-gradient(to left ,#555, #333 30%,#333, #333 30%, #333, #191414 100%);
     overflow-y: auto;
     h1{
         text-align: center;
