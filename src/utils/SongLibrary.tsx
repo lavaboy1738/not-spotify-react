@@ -21,7 +21,7 @@ export const SongLibrary = () => {
             name: "Jump Up, Super Star!",
             artist: "Nintendo",
             cover: OdysseyImage,
-            source: "https://vgmsite.com/soundtracks/super-mario-odyssey-ost/gynnebqj/3-26%20Jump%20Up%2C%20Super%20Star%21.mp3",
+            source: "https://vgmsite.com/soundtracks/super-mario-odyssey-original-soundtrack/utprbctlvn/3-26%20Jump%20Up%2C%20Super%20Star%21.mp3",
             color: "#e11200"
         },
         {
