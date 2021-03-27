@@ -53,7 +53,7 @@ export const SongLibrary = () => {
             name: "Welcome Horizons",
             artist: "Nintendo",
             cover: AC,
-            source: "https://vgmsite.com/soundtracks/animal-crossing-new-horizons-2020-switch-gamerip/nwisjhmctg/1-01%20Welcome%20Horizons.mp3",
+            source: "https://vgmsite.com/soundtracks/animal-crossing-new-horizons-2020-switch-gamerip/dtyofndowu/3-01%20Main%20Theme%20-%20Welcome%20Horizons.mp3",
             color: "#faca40"
         },
         {
